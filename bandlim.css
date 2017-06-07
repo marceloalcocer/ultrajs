@@ -1,0 +1,137 @@
+/* Palette URL: http://paletton.com/#uid=23J0u0kpPlzhctJlYplu4hhD6bW */
+
+/*** CSS namespace ***/
+#bandlim{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+/*** General layout ***/
+#bandlim .container_fwc{
+	width: 100%;
+	padding: auto auto;
+}
+#bandlim .right_align{
+	text-align: right;
+}
+
+/*** Controls ***/
+#bandlim #controls{
+	display: inline-block;
+	width: 30%;
+}
+#bandlim #controls fieldset{
+	font-weight: bold;
+	border: none;
+	margin-bottom: 1em;
+}
+#bandlim #controls legend{
+	width: 100%;
+	border-bottom: solid 1px #DDD;
+}
+#bandlim #controls .window-input{
+	width: 8ex;
+}
+
+/*** Results ***/
+#bandlim #results{
+	display: inline-block;
+	margin-left: 5%;
+	width: 60%;
+	border-collapse: collapse;
+}
+#bandlim #results th, #bandlim #results td{
+	padding: 0.8em 1em;
+	vertical-align: middle;
+	text-align: center;
+	border-bottom: solid 1px #DDD;
+}
+#bandlim #results th.numerical{
+	color: #516B9E;
+}
+#bandlim #results th.fit{
+	color: #CA9A3F;
+}
+
+/*** Tooltips ***/
+#bandlim .info{
+	position: relative;
+	font-weight: normal;
+	display: inline-block;
+	color: #666;
+}
+#bandlim .info .info_text{
+	visibility: hidden;
+	width: auto;
+	border: solid 1px #DDD;
+	background-color: #FFF;
+	color: #333;
+	box-shadow: 2px 2px 2px #999;
+	text-align: left;
+	font-weight: normal;
+	border-radius: 6px;
+	padding: 1em 1em;
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+	left: 50%;
+}
+#bandlim .info:hover .info_text{
+	visibility: visible;
+}
+#bandlim #info_description{
+	bottom: auto;
+	top: 100%;
+}
+#bandlim #info_file{
+	width: 400px;
+}
+#bandlim #info_numerical, #bandlim #info_fit{
+	width: 200px;
+}
+
+/*** Chart layout ***/
+#bandlim .chart{
+	width: 80%;
+}
+
+/*** Chart styling ***/
+#bandlim .Spectrum{
+	fill: #516B9E;
+	stroke: #516B9E;
+}
+#bandlim .FieldIntensity{
+	fill: #0E285C ;
+	stroke: #0E285C ;
+}
+#bandlim .Window{
+	fill: #DDDDDD;
+	stroke: #DDDDDD
+}
+#bandlim .Fit{
+	fill: #CA9A3F;
+	stroke: #CA9A3F;
+
+}
+#bandlim .PlotBandNumerical{
+	fill: #0E285C ;
+	stroke: #0E285C ;
+	stroke-width: 1.5;
+}
+#bandlim .PlotBandFit{
+	fill: #CA9A3F;
+	stroke: #CA9A3F;
+	stroke-width: 1.5;
+}
+#bandlim .highcharts-plot-band-label{
+	font-weight: bold;
+}
+#bandlim .LabelNumerical{
+	stroke: #0E285C ;
+	fill: #0E285C ;
+}
+#bandlim .LabelFit{
+	stroke: #CA9A3F;
+	fill: #CA9A3F;
+}

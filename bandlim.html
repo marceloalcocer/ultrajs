@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js" integrity="sha256-t7CAuaRhODo/cv00lxyONppujwTFFwUWGkrhD/UB1qM=" crossorigin="anonymous"></script>
+		<script src="http://code.highcharts.com/js/highcharts.js"></script>
+		<link rel="stylesheet" href="http://code.highcharts.com/css/highcharts.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/config/TeX-AMS_CHTML-full.js" integrity="sha256-TDzAVU6mP7n5H2k+h+M1QiXDPpfPL0Oi+nta0KQdAT4=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="bandlim.css">
+	</head>
+	<body>
+
+		<div id="bandlim">
+
+			<h2>Bandwidth Limited Pulse Calculator</h2>
+
+			<p>
+				Computes the bandwidth limited duration of an optical pulse from its spectrum
+				<sup class="info">
+					&#x1F6C8;
+					<span class="info_text" id="info_description">
+						\begin{equation}
+							a(t) = \left | a(t) \right | e^{i \phi(t)} \xrightarrow{\mathfrak{F}}  A(\omega) = \left | A(\omega) \right | e^{i \psi(\omega)}
+						\end{equation}
+						Under bandwidth limited conditions;
+						\begin{align}
+							\psi(\omega) &= 0 \\
+							\Rightarrow a(t) &= \mathfrak{F}^{-1} \left [ \sqrt{\left | A(\omega) \right |^2} \right ]
+						\end{align}
+					</span>
+				</sup>
+			</p>
+			
+			<p>Pure client-side JavaScript</p>
+		
+			<div class="container_fwc">
+				<form id="controls">
+					<fieldset>
+						<legend>Spectrum
+							<sup class="info">
+								&#x1F6C8;
+								<span class="info_text" id="info_file">
+									Supported file formats:
+									<ul>
+										<li>Comma separated values (\( \lambda_1, |A_1|^2 \)\n\( \lambda_2, |A_2|^2 \)\n...) [*.csv]</li>
+										<li>AvaSoft 8 Absolute Irradiance [*.irr8]</li>
+									</ul>
+								</span>
+							</sup>
+						</legend>
+						<input type="file" id="file"/>
+					</fieldset>
+					<fieldset>
+						<legend>Window limits [PHz]</legend>
+						<input type="text" id="limits_0" class="window-input"/>
+						<input type="text" id="limits_1" class="window-input"/>
+					</fieldset>
+					<fieldset>
+						<legend>Fit function</legend>
+						<select name="fit">
+							<option value="gaussian" selected>Gaussian</option>
+						</select>
+					</fieldset>
+				</form>
+				<table id="results">
+					<tr>
+						<td></td>
+						<th class="numerical">Numerical
+							<sup class="info">
+								&#x1F6C8;
+								<span class="info_text" id="info_numerical">Full width at half maximum of the numerical data</span>
+							</sup>
+						</th>
+						<th class="fit">Fit
+							<sup class="info">
+								&#x1F6C8;
+								<span class="info_text" id="info_fit">Full width at half maximum of the fit to the numerical data</span>
+							</sup>
+						</th>
+					</tr>
+					<tr>
+						<th>\( \Delta \nu \) [PHz]</th>
+						<td><output id="fwhm_frequency_numerical"></output></td>
+						<td><output id="fwhm_frequency_fit"></output></td>
+					</tr>
+					<tr>
+						<th>\( \Delta t \) [fs]</th>
+						<td><output id="fwhm_time_numerical"></output></td>
+						<td><output id="fwhm_time_fit"></output></td>
+						<th>Gauss
+							<sup class="info">
+								&#x1F6C8;
+								<span class="info_text">
+									\begin{align}
+										a(t) &= e^{-(t/t_p)^2} \\
+										\left | A(\omega)  \right | ^2 &= e^{-(\omega^2 t^2_p / 2)} \\
+										\Delta t &= 1.177 t_p \\
+										\Delta \nu \Delta t &= 2 \ln{(2)} / \pi \\
+										&= 0.441
+									\end{align}
+								</span>
+							</sup>
+						</th>
+						<th>Sech
+							<sup class="info">
+								&#x1F6C8;
+								<span class="info_text">
+									\begin{align}
+										\newcommand{\sech}{\mathop{\rm sech}\nolimits}
+										a(t) &= \sech \left( \frac{t}{t_p} \right ) \\
+										\left | A(\omega)  \right | ^2 &= \sech^2 \left( \frac{\pi \omega t_p}{2} \right ) \\
+										\Delta t &= 1.763 t_p \\
+										\Delta \nu \Delta t &= 0.315
+									\end{align}
+								</span>
+							</sup>
+						</th>
+					</tr>
+					<tr>
+						<th>\( \Delta \nu \Delta t \) [-]</th>
+						<td><output id="tbwp_numerical"></output></td>
+						<td><output id="tbwp_fit"></output></td>
+						<td>0.441</td>
+						<td>0.315</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="chart" id="chart_frequency"></div>
+			<div class="chart" id="chart_time"></div>
+
+			<script src="bandlim.js"></script>
+
+		</div>
+
+	</body>
+</html>
