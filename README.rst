@@ -14,7 +14,10 @@ Modules
 
 ultrajs is currently comprised of the following modules:
 
-* bandlim.js — Compute bandwidth limited pulse duration from power spectrum
+bandlim.js
+============
+
+Compute bandwidth limited pulse duration from power spectrum. `See it in action <http://www.chemphys.lu.se/research/groups/zigmantas-group/bandwidth-limited-pulse-calculator/>`_
 
 Dependencies
 ############
