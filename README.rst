@@ -7,7 +7,7 @@ About
 
 ultrajs is a collection of tools for performing calculations/conversions related to ultrafast optics in your browser. All tools are implemented in pure client-side JavaScript — no data is ever transferred to external servers.
 
-The code for ultrajs is freely available on GitHub: https://github.com/marceloalcocer/ultrafast
+The code for ultrajs is freely available on GitHub: https://github.com/marceloalcocer/ultrajs
 
 Modules
 ############
@@ -17,7 +17,7 @@ ultrajs is currently comprised of the following modules:
 bandlim.js
 ============
 
-Compute bandwidth limited pulse duration from power spectrum. `See it in action <http://www.chemphys.lu.se/research/groups/zigmantas-group/bandwidth-limited-pulse-calculator/>`_
+Compute bandwidth limited pulse duration from power spectrum. `See it in action <https://marceloalcocer.github.io/ultrajs/bandlim.html>`_
 
 Dependencies
 ############
@@ -31,7 +31,7 @@ ultrajs makes use of the following JS libraries:
 Documentation
 ##############
 
-*...nothing to see here...*
+*...working on it...*
 
 License
 ##########
