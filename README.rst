@@ -28,11 +28,6 @@ ultrajs makes use of the following JS libraries:
 * `Highcharts <https://www.highcharts.com/>`_ — Plotting
 * `MathJax <https://www.mathjax.org/>`_ — Maths display
 
-Demos
-######
-
-* `bandlim.js demo <https://marceloalcocer.github.io/ultrajs/bandlim.html>`_
-
 Documentation
 ##############
 
